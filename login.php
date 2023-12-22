@@ -8,12 +8,10 @@ include 'head.php';
 session_start();
 
 // Check if user is already logged in, redirect if true
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === false) {
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     header('Location: index.php');
     exit();
 }
-
-
 ?>
 
 <body>
@@ -41,6 +39,5 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === false) {
         </form>
     </div>
 </body>
-
 
 </html>
