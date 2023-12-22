@@ -14,7 +14,7 @@ include 'head.php';
             <input type="text" id="username" name="username" required>
 
             <label for="password">Password:</label>
-            <input type="text" id="password" name="password" required>
+            <input type="password" id="password" name="password" required>
 
             <label for="firstname">First Name:</label>
             <input type="text" id="firstname" name="firstname" required>

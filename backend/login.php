@@ -44,11 +44,12 @@ if ($result->num_rows > 0) {
     }
 } else {
     // Kullanıcı bulunamadı, hata mesajını göster ve işlemi sonlandır
-    echo '<script>alert("Wrong username or password.");</script>';
+    echo '<script>alert("You are heading back to login page.");</script>';
     echo '<script>window.location.href = "http://localhost:8080/foodshop/login.php";</script>';
     exit();
 }
 
+
 // Veritabanı bağlantısını kapat
-$conn->close();
+#$conn->close();
 ?>
