@@ -32,3 +32,9 @@ function addIngredientField() {
     var ingredientsContainer = document.querySelector(".add-food-ingredients");
     ingredientsContainer.appendChild(ingredientDiv);
 }
+
+function deleteFood(foodId) {
+    if (confirm("Are you sure you want to delete this food?")) {
+        window.location.href = 'backend/delete-food.php?id=' + foodId;
+    }
+}
