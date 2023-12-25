@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <?php
 $pageTitle = "Register";
 include 'head.php';
@@ -15,11 +16,22 @@ if ($conn-> connect_error){
     die("Connection failed:" .$conn->connect_error);
 }
 
+// Check for filter input and sanitize it
+$filterTitle = isset($_GET['filterTitle']) ? $conn->real_escape_string($_GET['filterTitle']) : '';
+
+// Modify SQL query based on filter
 $sql = "SELECT recipe.*, MIN(recipe_photo.photo) AS first_photo
         FROM recipe
-        LEFT JOIN recipe_photo ON recipe.id = recipe_photo.recipe_id
-        GROUP BY recipe.id";
-$result= $conn ->query($sql);
+        LEFT JOIN recipe_photo ON recipe.id = recipe_photo.recipe_id";
+
+// Apply filter if provided
+if (!empty($filterTitle)) {
+    $sql .= " WHERE recipe.title LIKE '%$filterTitle%'";
+}
+
+$sql .= " GROUP BY recipe.id";
+
+$result = $conn->query($sql);
 ?>
 
 <body>
@@ -27,6 +39,13 @@ $result= $conn ->query($sql);
     <div class="food-container">
         <div class="food-title">
             <h1 class="food-title-h1"></h1>
+        </div>
+        <div class="food-search">
+            <form action="food.php" method="get">
+            <label for="filterTitle">Filter by Title:</label>
+            <input type="text" id="filterTitle" name="filterTitle">
+            <input type="submit" value="Apply Filter">
+            </form>
         </div>
         <div class="food-section">
             <table class="food-table">
@@ -59,7 +78,7 @@ $result= $conn ->query($sql);
                                 </td>
                                 <td class="td-element"><?php echo $row['title']; ?></td>
                                 <td class="td-element"><?php echo $row['description']; ?></td>
-                                <td class="td-element"><a class="btn-details" href="food-detail.php?id=<?php echo $row['ID']; ?>&title=<?php echo $row['title']; ?>"></a></td>
+                                <td class="td-element"><a class="btn-details" href="food-details.php?id=<?php echo $row['ID']; ?>&title=<?php echo $row['title']; ?>"></a></td>
                             </tr>
                         <?php
                         }

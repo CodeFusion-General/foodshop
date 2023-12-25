@@ -234,3 +234,46 @@ Food
 .add-foods input[type="submit"]:hover {
     background-color: #555;
 }
+
+
+/*
+Food Details
+*/
+
+/* Food Details Styles */
+.food-details {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #888;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.food-details h1, 
+.food-details h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.food-details p, 
+.food-details ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.food-details ul {
+    list-style-type: circle; /* or any other style you prefer */
+}
+
+.food-details img {
+    display: block;
+    max-width: 100%; /* ensures image is responsive and fits the container */
+    height: auto;
+    margin: 0 auto; /* centers the image */
+    border-radius: 8px; /* optional, for rounded corners */
+}
+
+.food-details li {
+    margin-bottom: 10px; /* space between ingredient items */
+}
