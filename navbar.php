@@ -14,6 +14,7 @@ if (session_status() == PHP_SESSION_NONE) {
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                 // Display logout button if logged in
                 echo '<a href="add-foods.php" class="addfoods-button">Add Foods</a>';
+                echo '<a href="my-foods.php" class="myfoods-button">My Foods</a>';
             }
             ?>
         </div>

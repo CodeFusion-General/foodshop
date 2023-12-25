@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-
+$pageTitle = "Add Foods";
 include"head.php";
 session_start(); // Start the session
 

@@ -2,6 +2,7 @@
 <html lang="en">
     <?php
     include 'head.php';
+    $pageTitle = "Index";
     ?>
 <body>
     <?php include ("navbar.php") ?>
