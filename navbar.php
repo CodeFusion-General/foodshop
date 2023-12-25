@@ -10,6 +10,12 @@ if (session_status() == PHP_SESSION_NONE) {
         <div class="navbar-left-align">
             <a href="index.php" class="home-button">Home</a>
             <a href="food.php" class="foods-button">Foods</a>
+            <?php
+            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+                // Display logout button if logged in
+                echo '<a href="add-foods.php" class="addfoods-button">Add Foods</a>';
+            }
+            ?>
         </div>
         <div class="navbar-right-align">
             <?php

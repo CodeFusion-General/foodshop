@@ -9,7 +9,7 @@ include 'head.php';
 <body>
     <?php include ("navbar.php") ?>
     <?php
-        echo "Home";
+        echo "This will be main page of the website";
     ?>
 </body>
 </html>

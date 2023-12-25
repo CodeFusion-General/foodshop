@@ -13,6 +13,7 @@ if (!isset($_SESSION['loggedin'])) {
 $_SESSION = array();
 
 // Destroy the session
+session_unset();
 session_destroy();
 
 // Redirect to the login page after logout with a success message

@@ -34,16 +34,17 @@ body {
     color: black;
 }
 
+.addfoods-button,
 .logout-button,
 .home-button,
 .foods-button,
 .login-button,
 .register-button {
-
     background-color: #555;
 }
 
-.logout-button,
+.addfoods-button:hover,
+.logout-button:hover,
 .home-button:hover,
 .foods-button:hover,
 .login-button:hover,
@@ -177,3 +178,59 @@ Food
     .btn-details:hover {
         background-color: #555;
     }
+
+    /*
+    Add Foods
+    */
+
+.add-foods {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #888;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-foods h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form Labels */
+.add-foods label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Form Input Fields */
+.add-foods input[type="text"],
+.add-foods textarea,
+.add-foods input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Form Textarea */
+.add-foods textarea {
+    resize: vertical; /* Allows vertical resizing of the textarea */
+}
+
+/* Form Submit Button */
+.add-foods input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.add-foods input[type="submit"]:hover {
+    background-color: #555;
+}
