@@ -59,7 +59,45 @@
         $conn->close();
         ?>
     </div>
+    <div class="comment-form">
+        <h2>Leave a Comment</h2>
+        <form action="backend/submit-comment.php" method="post">
+            <textarea name="comment" required></textarea>
+            <input type="hidden" name="recipe_id" value="<?php echo $recipe_id; ?>">
+            <input type="submit" value="Submit Comment">
+        </form>
+    </div>
 
+    <!-- Display Existing Comments -->
+    <div class="comments-section">
+        <h2>Comments</h2>
+        <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";  // Update with your password, if any
+        $dbname = "foodshop";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+
+        $comment_sql = "SELECT comments.*, user.firstname, user.lastname FROM comments JOIN user ON comments.user_id = user.ID WHERE recipe_id = $recipe_id";
+        $comment_result = $conn->query($comment_sql);
+
+        if ($comment_result && $comment_result->num_rows > 0) {
+            while ($comment_row = $comment_result->fetch_assoc()) {
+                echo "<div class='comment'>";
+                echo "<p><strong>" . $comment_row['firstname'] . " " . $comment_row['lastname'] . ":</strong> " . $comment_row['comment'] . "</p>";
+                echo "</div>";
+            }
+        } else {
+            echo "<p>No comments yet.</p>";
+        }
+        $conn->close();
+        ?>
+    </div>
 
 </body>
 </html>
