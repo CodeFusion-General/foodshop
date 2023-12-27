@@ -43,18 +43,16 @@ CREATE TABLE IF NOT EXISTS `recipe_ingredients` (
   `ingredient` varchar(50) COLLATE utf8mb4_turkish_ci NOT NULL,
   `value` text COLLATE utf8mb4_turkish_ci NOT NULL,
   PRIMARY KEY (`ID`,`recipe_id`),
-  KEY `recipe_id` (`recipe_id`),
-  CONSTRAINT `recipe_ingredients_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`ID`) ON DELETE CASCADE
+  KEY `recipe_id` (`recipe_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;
 
 DROP TABLE IF EXISTS `recipe_photo`;
 CREATE TABLE IF NOT EXISTS `recipe_photo` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `recipe_id` int(11) NOT NULL,
-  `photo` longblob NOT NULL,
+  `photo` blob NOT NULL,
   PRIMARY KEY (`ID`,`recipe_id`),
-  KEY `recipe_id` (`recipe_id`),
-  CONSTRAINT `recipe_photo_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`ID`) ON DELETE CASCADE
+  KEY `recipe_id` (`recipe_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;
 
 DROP TABLE IF EXISTS `comments`;

@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 $pageTitle = "Add Foods";
-include "head.php";
+include"head.php";
 session_start(); // Start the session
 
 $servername = "localhost";
@@ -12,23 +12,27 @@ $dbname = "foodshop";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+// Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    if (isset($_SESSION['user_id'])) {
-        $user_id = $_SESSION['user_id'];
-    } else {
-        echo "User is not logged in.";
-        exit; // Or redirect to the login page
-    }
-
     $title = $conn->real_escape_string($_POST['title']);
     $description = $conn->real_escape_string($_POST['description']);
     $ingredients = $_POST['ingredients'];
     $values = $_POST['values'];
+
+    // Replace with actual user ID from session or authentication system
+    if(isset($_SESSION['user_id'])) {
+        $user_id = $_SESSION['user_id'];
+    } else {
+        // Handle the case where the user is not logged in or session is not set
+        echo "User is not logged in.";
+        exit; // Or redirect to login page
+    }
 
     // Insert recipe data into 'recipe' table
     $recipe_query = "INSERT INTO recipe (user_id, title, description) VALUES ('$user_id', '$title', '$description')";
@@ -36,33 +40,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $recipe_id = $conn->insert_id;
 
         // Insert each ingredient into 'recipe_ingredients' table
-        foreach ($ingredients as $index => $ingredient) {
-            $ingredient = $conn->real_escape_string($ingredient);
-            $value = $conn->real_escape_string($values[$index]);
+        for ($i = 0; $i < count($ingredients); $i++) {
+            $ingredient = $conn->real_escape_string($ingredients[$i]);
+            $value = $conn->real_escape_string($values[$i]);
             $ingredient_query = "INSERT INTO recipe_ingredients (recipe_id, ingredient, value) VALUES ('$recipe_id', '$ingredient', '$value')";
-            if (!$conn->query($ingredient_query)) {
-                echo "Error: " . $conn->error;
-            }
+            $conn->query($ingredient_query);
         }
 
         // Handle photo upload
-        if (isset($_FILES['photo']) && $_FILES['photo']['error'] == 0) {
-            $photoData = file_get_contents($_FILES['photo']['tmp_name']);
-
-            $photo_query = "INSERT INTO recipe_photo (recipe_id, photo) VALUES (?, ?)";
-            $stmt = $conn->prepare($photo_query);
-            $null = NULL;
-            $stmt->bind_param("ib", $recipe_id, $null);
-            $stmt->send_long_data(1, $photoData);
-            $stmt->execute();
-            $stmt->close();
-        } else {
-            echo "Error uploading photo: " . $_FILES['photo']['error'];
+        $target_dir = "uploads/"; // Make sure this directory exists and is writable
+        $target_file = $target_dir . basename($_FILES["photo"]["name"]);
+        if (move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
+            $photo_query = "INSERT INTO recipe_photo (recipe_id, photo) VALUES ('$recipe_id', '$target_file')";
+            $conn->query($photo_query);
         }
-    } else {
-        echo "Error: " . $conn->error;
     }
-
     $conn->close();
 }
 ?>
