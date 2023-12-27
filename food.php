@@ -16,15 +16,12 @@ if ($conn-> connect_error){
     die("Connection failed:" .$conn->connect_error);
 }
 
-// Check for filter input and sanitize it
 $filterTitle = isset($_GET['filterTitle']) ? $conn->real_escape_string($_GET['filterTitle']) : '';
 
-// Modify SQL query based on filter
 $sql = "SELECT recipe.*, MIN(recipe_photo.photo) AS first_photo
         FROM recipe
         LEFT JOIN recipe_photo ON recipe.id = recipe_photo.recipe_id";
 
-// Apply filter if provided
 if (!empty($filterTitle)) {
     $sql .= " WHERE recipe.title LIKE '%$filterTitle%'";
 }
@@ -63,7 +60,6 @@ $result = $conn->query($sql);
                             echo "<tr><td colspan='5' style='text-align: center;'>No foods found</td></tr>";
                         }
                         
-                        // Loop through the data and display it in the table
                         while ($row = $result->fetch_assoc()) {
                         ?>
                             <tr>
@@ -82,7 +78,6 @@ $result = $conn->query($sql);
                             </tr>
                         <?php
                         }
-                        // Close the database connection
                         $conn->close();
                         ?>
                 </tbody>

@@ -1,5 +1,4 @@
 <?php
-// Database connection details
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -7,14 +6,11 @@ $dbname = "foodshop";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check the connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Process form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
     $username = $_POST["username"];
     $password = $_POST["password"];
     $email = $_POST["email"];
@@ -25,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $birthdate = $_POST["birthdate"];
 
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-    // Insert data into the 'users' table
     $sql = "INSERT INTO user (email, firstname, lastname, phone, address, birthdate)
             VALUES ('$email', '$firstname', '$lastname', '$phone', '$address', '$birthdate')";
 
@@ -55,7 +50,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $sql2 . "<br>" . $conn->error;
     }
 
-    // Close the database connection
-    #$conn->close();
+
 }
 ?>

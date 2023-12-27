@@ -4,10 +4,8 @@
 $pageTitle = "Login";
 include 'head.php';
 
-// Start session
 session_start();
 
-// Check if user is already logged in, redirect if true
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     header('Location: index.php');
     exit();

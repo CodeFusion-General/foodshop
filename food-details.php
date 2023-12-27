@@ -23,7 +23,6 @@
         $recipe_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
         if ($recipe_id > 0) {
-            // Fetch food details
             $sql = "SELECT * FROM recipe WHERE id = $recipe_id";
             $result = $conn->query($sql);
 
@@ -32,7 +31,6 @@
                 echo "<h1>" . $row["title"] . "</h1>";
                 echo "<p>" . $row["description"] . "</p>";
 
-                // Fetch ingredients
                 $ingredient_sql = "SELECT * FROM recipe_ingredients WHERE recipe_id = $recipe_id";
                 $ingredient_result = $conn->query($ingredient_sql);
                 if ($ingredient_result && $ingredient_result->num_rows > 0) {
@@ -43,7 +41,6 @@
                     echo "</ul>";
                 }
 
-                // Fetch photo
                 $photo_sql = "SELECT * FROM recipe_photo WHERE recipe_id = $recipe_id";
                 $photo_result = $conn->query($photo_sql);
                 if ($photo_result && $photo_result->num_rows > 0) {
@@ -68,13 +65,12 @@
         </form>
     </div>
 
-    <!-- Display Existing Comments -->
     <div class="comments-section">
         <h2>Comments</h2>
         <?php
         $servername = "localhost";
         $username = "root";
-        $password = "";  // Update with your password, if any
+        $password = "";
         $dbname = "foodshop";
 
         $conn = new mysqli($servername, $username, $password, $dbname);
