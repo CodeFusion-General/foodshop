@@ -78,7 +78,7 @@ $result = $conn->query($sql);
                                 </td>
                                 <td class="td-element"><?php echo $row['title']; ?></td>
                                 <td class="td-element"><?php echo $row['description']; ?></td>
-                                <td class="td-element"><a class="btn-details" href="food-details.php?id=<?php echo $row['ID']; ?>&title=<?php echo $row['title']; ?>"></a></td>
+                                <td class="td-element"><a class="btn-details" href="food-details.php?id=<?php echo $row['ID']; ?>&title=<?php echo $row['title']; ?>">Details</a></td>
                             </tr>
                         <?php
                         }
