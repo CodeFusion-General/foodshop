@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$email', '$firstname', '$lastname', '$phone', '$address', '$birthdate')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Registration successful!";
+        echo '<script>alert("Registration Successfull!")</script>';
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -49,12 +49,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql2 = "INSERT INTO account (user_id, username, password) VALUES ('$user_id', '$username', '$hashedPassword')";
 
     if ($conn->query($sql2) === TRUE) {
-        echo "Data inserted successfully <br>";
+        echo '<script>alert("You are heading back to login page!");</script>';
+        echo '<script>window.location.href = "http://localhost:8080/foodshop/login.php";</script>';
     } else {
         echo "Error: " . $sql2 . "<br>" . $conn->error;
     }
 
     // Close the database connection
-    $conn->close();
+    #$conn->close();
 }
 ?>
