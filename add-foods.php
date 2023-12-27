@@ -3,14 +3,13 @@
 <?php
 $pageTitle = "Add Foods";
 include "head.php";
-session_start(); // Start the session
+session_start();
 
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "foodshop";
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -22,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user_id = $_SESSION['user_id'];
     } else {
         echo "User is not logged in.";
-        exit; // Or redirect to the login page
+        exit;
     }
 
     $title = $conn->real_escape_string($_POST['title']);
@@ -30,12 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ingredients = $_POST['ingredients'];
     $values = $_POST['values'];
 
-    // Insert recipe data into 'recipe' table
     $recipe_query = "INSERT INTO recipe (user_id, title, description) VALUES ('$user_id', '$title', '$description')";
     if ($conn->query($recipe_query) === TRUE) {
         $recipe_id = $conn->insert_id;
 
-        // Insert each ingredient into 'recipe_ingredients' table
         foreach ($ingredients as $index => $ingredient) {
             $ingredient = $conn->real_escape_string($ingredient);
             $value = $conn->real_escape_string($values[$index]);
@@ -45,7 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
 
-        // Handle photo upload
         if (isset($_FILES['photo']) && $_FILES['photo']['error'] == 0) {
             $photoData = file_get_contents($_FILES['photo']['tmp_name']);
 

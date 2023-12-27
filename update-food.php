@@ -9,9 +9,8 @@
     <?php 
         include("navbar.php"); 
 
-        // Check if user is logged in and has the right privileges
         if (!isset($_SESSION['user_id'])) {
-            header('Location: login.php'); // Redirect to login page
+            header('Location: login.php');
             exit;
         }
 
@@ -20,10 +19,8 @@
         $password = "";
         $dbname = "foodshop";
 
-        // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
 
-        // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
@@ -31,16 +28,13 @@
         $food_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
         $ingredients = [];
 
-        // Handle form submission
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_food'])) {
             $title = $conn->real_escape_string($_POST['title']);
             $description = $conn->real_escape_string($_POST['description']);
         
-            // Update main food details
             $update_sql = "UPDATE recipe SET title = '$title', description = '$description' WHERE id = $food_id";
             $conn->query($update_sql);
         
-            // Update ingredients
             foreach ($_POST['ingredients'] as $index => $ingredientName) {
                 $ingredientValue = $conn->real_escape_string($_POST['values'][$index]);
                 $ingredientId = $conn->real_escape_string($_POST['ingredient_ids'][$index]);
@@ -49,20 +43,17 @@
                 $conn->query($update_ingredient_sql);
             }
         
-            // Handle photo upload
             if (!empty($_FILES["photo"]["name"])) {
                 $imageFileType = strtolower(pathinfo($_FILES["photo"]["name"], PATHINFO_EXTENSION));
             
-                // Check file size (for example, 5MB limit)
                 if ($_FILES["photo"]["size"] > 5000000) {
                     echo "Sorry, your file is too large.";
                 } else {
                     $photoData = file_get_contents($_FILES["photo"]["tmp_name"]);
                 
-                    // Update photo in database
                     $photoSql = "UPDATE recipe_photo SET photo = ? WHERE recipe_id = ?";
                     $stmt = $conn->prepare($photoSql);
-                    $null = NULL; // This is needed for binding the blob data
+                    $null = NULL;
                     $stmt->bind_param("bi", $null, $food_id);
                     $stmt->send_long_data(0, $photoData);
                     $stmt->execute();
@@ -72,19 +63,16 @@
                 echo "No photo uploaded or file too large.";
             }
         
-            // Redirect or show success message
             echo "Food updated successfully.";
             header("Location: my-foods.php");
         }
 
-        // Fetch the current food details to display in the form
         if ($food_id > 0) {
             $sql = "SELECT * FROM recipe WHERE id = $food_id";
             $result = $conn->query($sql);
             if ($result && $result->num_rows > 0) {
                 $row = $result->fetch_assoc();
             
-                // Fetch ingredients
                 $ingredient_sql = "SELECT * FROM recipe_ingredients WHERE recipe_id = $food_id";
                 $ingredient_result = $conn->query($ingredient_sql);
                 if ($ingredient_result) {

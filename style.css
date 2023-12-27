@@ -1,28 +1,24 @@
-/* General Body Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #121212; /* Dark background for the whole page */
-    color: #ffffff; /* Light text for contrast */
+    background-color: #121212;
+    color: #ffffff;
     margin: 0;
     padding: 0;
 }
-/* Food Container Styles */
 .food-container {
     width: 80%;
     margin: 20px auto;
-    background-color: #1e1e1e; /* Slightly different dark shade for the container */
+    background-color: #1e1e1e;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Title Styles */
 .food-title-h1 {
     color: #ffffff;
     text-align: center;
 }
 
-/* Search Box Styles */
 .food-search form {
     display: flex;
     gap: 10px;
@@ -49,7 +45,6 @@ body {
     background-color: #444;
 }
 
-/* Table Styles */
 .food-table {
     width: 100%;
     border-collapse: collapse;
@@ -65,14 +60,12 @@ body {
     background-color: #2a2a2a;
 }
 
-/* Table Image Styles */
 .table-img {
     width: 100px;
     height: auto;
     border-radius: 5px;
 }
 
-/* Button Details */
 .btn-details, .btn-update, .btn-delete {
     display: inline-block;
     background-color: #333;
@@ -87,23 +80,21 @@ body {
     background-color: #444;
 }
 
-/* Navbar General Styles */
 .navbar {
-    background-color: #222; /* Dark background for the navbar */
+    background-color: #222;
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .navbar-container {
     display: flex;
-    justify-content: space-between; /* Aligns children to each end */
+    justify-content: space-between;
     align-items: center;
-    width: 100%; /* Ensures the container takes the full width of the navbar */
+    width: 100%;
 }
 
-/* Navbar Link/Button Styles */
 .navbar a {
-    color: #fff; /* Light text color for contrast */
+    color: #fff;
     text-decoration: none;
     padding: 5px 10px;
     margin: 0 5px;
@@ -111,33 +102,28 @@ body {
     transition: background-color 0.3s ease;
 }
 
-/* Hover Effect for Navbar Links/Buttons */
 .navbar a:hover {
-    background-color: #333; /* Slightly lighter on hover */
+    background-color: #333;
 }
 
-/* Specific Styles for Different Buttons */
 .home-button, .foods-button, .addfoods-button, .myfoods-button, .logout-button, .login-button, .register-button {
-    /* Common styles for all navbar buttons */
+    
 }
 
-/* Left and Right Alignment Styles */
 .navbar-left-align, .navbar-right-align {
     display: flex;
     align-items: center;
 }
 
-/* Additional specific styles for different buttons can be added here, if needed */
 
-/* Register Container Styles */
 .register-container {
     width: 80%;
     margin: 20px auto;
-    background-color: #1e1e1e; /* Dark background for the container */
+    background-color: #1e1e1e;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    color: #ffffff; /* Light text for readability */
+    color: #ffffff;
 }
 
 .register-container h2 {
@@ -146,7 +132,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Form Styles */
 .register-container form {
     display: grid;
     grid-gap: 10px;
@@ -170,7 +155,6 @@ body {
     color: #fff;
 }
 
-/* Button Styles */
 .register-container button {
     background-color: #333;
     color: #fff;
@@ -179,29 +163,27 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%; /* Full width */
+    width: 100%;
 }
 
 .register-container button:hover {
     background-color: #444;
 }
 
-/* Responsive Grid Layout for Labels and Inputs */
 @media (min-width: 600px) {
     .register-container form {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Login Container Styles */
 .login-container {
     width: 80%;
     margin: 20px auto;
-    background-color: #1e1e1e; /* Dark background for the container */
+    background-color: #1e1e1e;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    color: #ffffff; /* Light text for readability */
+    color: #ffffff;
 }
 
 .login-container h2 {
@@ -210,9 +192,8 @@ body {
     margin-bottom: 20px;
 }
 
-/* Error Message Styles */
 .error-message {
-    background-color: #b00020; /* Dark red for error messages */
+    background-color: #b00020;
     color: #ffffff;
     padding: 10px;
     border-radius: 5px;
@@ -220,7 +201,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Form Styles */
 .login-container form {
     display: grid;
     grid-gap: 10px;
@@ -241,7 +221,6 @@ body {
     color: #fff;
 }
 
-/* Button Styles */
 .login-container button {
     background-color: #333;
     color: #fff;
@@ -250,7 +229,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%; /* Full width */
+    width: 100%;
 }
 
 .login-container button:hover {
@@ -258,13 +237,12 @@ body {
 }
 
 
-/* Add Foods Form Styles */
 .add-foods {
-    background-color: #1e1e1e; /* Dark background for the form */
+    background-color: #1e1e1e;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    color: #ffffff; /* Light text for readability */
+    color: #ffffff;
     margin: 20px auto;
     width: 80%;
 }
@@ -283,14 +261,13 @@ body {
     border-radius: 5px;
     background-color: #333;
     color: #fff;
-    margin-bottom: 10px; /* Spacing between fields */
+    margin-bottom: 10px;
 }
 
 .add-foods textarea {
-    height: 100px; /* Adjust height as needed */
+    height: 100px;
 }
 
-/* Button Styles */
 .add-foods button,
 .add-foods input[type="submit"] {
     background-color: #333;
@@ -300,8 +277,8 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%; /* Full width */
-    margin-top: 10px; /* Spacing above the button */
+    width: 100%;
+    margin-top: 10px;
 }
 
 .add-foods button:hover,
@@ -309,23 +286,20 @@ body {
     background-color: #444;
 }
 
-/* Additional Styles for Ingredients Section */
 .add-food-ingredients {
     margin-bottom: 20px;
 }
 
-/* Adjustments for specific fields if needed */
 
-/* Food Details Container Styles */
 .food-details {
-    background-color: #1e1e1e; /* Dark background for the container */
+    background-color: #1e1e1e;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    color: #ffffff; /* Light text for readability */
+    color: #ffffff;
     margin: 20px auto;
     width: 80%;
-    word-wrap: break-word; /* Ensures text doesn't overflow */
+    word-wrap: break-word;
 }
 
 .food-details h1, .food-details h2 {
@@ -335,16 +309,16 @@ body {
 
 .food-details p {
     margin-bottom: 15px;
-    line-height: 1.6; /* Improves readability */
+    line-height: 1.6;
 }
 
 .food-details ul {
-    list-style-type: none; /* Removes default list style */
+    list-style-type: none;
     padding: 0;
 }
 
 .food-details li {
-    background-color: #333; /* Dark background for list items */
+    background-color: #333;
     color: #fff;
     padding: 10px;
     margin-bottom: 5px;
@@ -356,16 +330,15 @@ body {
     max-width: 100%;
     height: auto;
     margin: 20px auto;
-    border-radius: 8px; /* Adds rounded corners to the image */
+    border-radius: 8px;
 }
 
-/* Comment Form Styles */
 .comment-form {
-    background-color: #1e1e1e; /* Dark background for the form */
+    background-color: #1e1e1e;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    color: #ffffff; /* Light text for readability */
+    color: #ffffff;
     margin: 20px auto;
     width: 80%;
 }
@@ -382,8 +355,8 @@ body {
     border-radius: 5px;
     background-color: #333;
     color: #fff;
-    margin-bottom: 10px; /* Spacing between fields */
-    height: 100px; /* Adjust height as needed */
+    margin-bottom: 10px;
+    height: 100px;
 }
 
 .comment-form input[type="submit"] {
@@ -394,17 +367,16 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%; /* Full width */
-    margin-top: 10px; /* Spacing above the button */
+    width: 100%;
+    margin-top: 10px;
 }
 
 .comment-form input[type="submit"]:hover {
     background-color: #444;
 }
 
-/* Comments Section Styles */
 .comments-section {
-    background-color: #1e1e1e; /* Dark background */
+    background-color: #1e1e1e;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -419,20 +391,19 @@ body {
 }
 
 .comments-section .comment {
-    background-color: #333; /* Dark background for comments */
+    background-color: #333;
     color: #fff;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
 }
 
-/* Update Food Container Styles */
 .update-food-container {
-    background-color: #1e1e1e; /* Dark background for the container */
+    background-color: #1e1e1e;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    color: #ffffff; /* Light text for readability */
+    color: #ffffff;
     margin: 20px auto;
     width: 80%;
 }
@@ -456,11 +427,11 @@ body {
     border-radius: 5px;
     background-color: #333;
     color: #fff;
-    margin-bottom: 10px; /* Spacing between fields */
+    margin-bottom: 10px;
 }
 
 .update-food-container textarea {
-    height: 100px; /* Adjust height as needed */
+    height: 100px;
 }
 
 .update-food-container input[type="submit"] {
@@ -471,24 +442,23 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%; /* Full width */
-    margin-top: 10px; /* Spacing above the button */
+    width: 100%;
+    margin-top: 10px;
 }
 
 .update-food-container input[type="submit"]:hover {
     background-color: #444;
 }
 
-/* Introduction Container Styles */
 .introduction-container {
-    background-color: #1e1e1e; /* Karanlık arka plan */
+    background-color: #1e1e1e;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    color: #ffffff; /* Açık yazı rengi okunabilirlik için */
+    color: #ffffff;
     margin: 20px auto;
     width: 80%;
-    text-align: center; /* Merkeze hizalama */
+    text-align: center;
 }
 
 .introduction-container h1 {
@@ -497,14 +467,55 @@ body {
 
 .introduction-container p {
     margin-bottom: 20px;
-    line-height: 1.6; /* Okunabilirliği artırmak için satır yüksekliği */
+    line-height: 1.6;
 }
 
-/* Resim Stilleri */
 .introduction-container .introduction-img {
-    max-width: 200px; /* Maksimum genişlik */
+    max-width: 200px;
     height: 200px;
-    margin: 5px; /* Her resim arasında biraz boşluk */
-    border-radius: 8px; /* Yuvarlatılmış köşeler */
-    display: inline-block; /* Resimleri yan yana getir */
+    margin: 5px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .food-container, .register-container, .login-container, .add-foods, .food-details, .comment-form, .comments-section, .update-food-container, .introduction-container {
+        width: 95%;
+    }
+
+    .navbar-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .food-search form {
+        flex-direction: column;
+    }
+
+    .food-table, .food-table th, .food-table td {
+        display: block;
+    }
+
+    .add-foods input[type="text"], .add-foods input[type="file"], .add-foods textarea,
+    .update-food-container input[type="text"], .update-food-container textarea, .update-food-container input[type="file"],
+    .register-container input, .login-container input, .comment-form textarea {
+        width: 100%;
+    }
+
+    .navbar a {
+        display: block;
+        margin-top: 5px;
+    }
+
+    .navbar-left-align, .navbar-right-align {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .food-title-h1, .register-container h2, .login-container h2, .food-details h1, .food-details h2, .comment-form h2, .comments-section h2, .update-food-container h1, .update-food-container h2, .introduction-container h1 {
+        font-size: 1.5em;
+    }
 }

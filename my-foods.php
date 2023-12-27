@@ -11,13 +11,11 @@
 
 
 
-    // Check if user is logged in
     if (!isset($_SESSION['user_id'])) {
-        header('Location: login.php'); // Redirect to login page
+        header('Location: login.php');
         exit;
     }
 
-    // Database connection
     $conn = new mysqli("localhost", "root", "", "foodshop");
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
