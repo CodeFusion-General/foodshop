@@ -478,3 +478,33 @@ body {
 .update-food-container input[type="submit"]:hover {
     background-color: #444;
 }
+
+/* Introduction Container Styles */
+.introduction-container {
+    background-color: #1e1e1e; /* Karanlık arka plan */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #ffffff; /* Açık yazı rengi okunabilirlik için */
+    margin: 20px auto;
+    width: 80%;
+    text-align: center; /* Merkeze hizalama */
+}
+
+.introduction-container h1 {
+    margin-bottom: 20px;
+}
+
+.introduction-container p {
+    margin-bottom: 20px;
+    line-height: 1.6; /* Okunabilirliği artırmak için satır yüksekliği */
+}
+
+/* Resim Stilleri */
+.introduction-container .introduction-img {
+    max-width: 200px; /* Maksimum genişlik */
+    height: 200px;
+    margin: 5px; /* Her resim arasında biraz boşluk */
+    border-radius: 8px; /* Yuvarlatılmış köşeler */
+    display: inline-block; /* Resimleri yan yana getir */
+}
