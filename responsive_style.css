@@ -508,3 +508,47 @@ body {
     border-radius: 8px; /* Yuvarlatılmış köşeler */
     display: inline-block; /* Resimleri yan yana getir */
 }
+
+
+/* Responsive Media Queries */
+@media only screen and (max-width: 768px) {
+    .food-container, .register-container, .login-container, .add-foods, .food-details, .comment-form, .comments-section, .update-food-container, .introduction-container {
+        width: 95%; /* Adjust width for smaller screens */
+    }
+
+    .navbar-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .food-search form {
+        flex-direction: column;
+    }
+
+    .food-table, .food-table th, .food-table td {
+        display: block; /* Make table elements stack vertically on small screens */
+    }
+
+    .add-foods input[type="text"], .add-foods input[type="file"], .add-foods textarea,
+    .update-food-container input[type="text"], .update-food-container textarea, .update-food-container input[type="file"],
+    .register-container input, .login-container input, .comment-form textarea {
+        width: 100%; /* Full width for smaller screens */
+    }
+
+    /* Adjustments for Navbar items */
+    .navbar a {
+        display: block;
+        margin-top: 5px;
+    }
+
+    .navbar-left-align, .navbar-right-align {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .food-title-h1, .register-container h2, .login-container h2, .food-details h1, .food-details h2, .comment-form h2, .comments-section h2, .update-food-container h1, .update-food-container h2, .introduction-container h1 {
+        font-size: 1.5em; /* Smaller font size for very small screens */
+    }
+}
