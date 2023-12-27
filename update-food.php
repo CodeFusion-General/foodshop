@@ -51,28 +51,25 @@
         
             // Handle photo upload
             if (!empty($_FILES["photo"]["name"])) {
-                $target_dir = "uploads/"; // Ensure this directory exists and is writable
-                $target_file = $target_dir . basename($_FILES["photo"]["name"]);
-                $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                $imageFileType = strtolower(pathinfo($_FILES["photo"]["name"], PATHINFO_EXTENSION));
             
                 // Check file size (for example, 5MB limit)
                 if ($_FILES["photo"]["size"] > 5000000) {
                     echo "Sorry, your file is too large.";
                 } else {
-                    if (move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
-                        // Update photo in database
-                        $photoData = file_get_contents($target_file);
-                        $photoSql = "UPDATE recipe_photo SET photo = ? WHERE recipe_id = ?";
-                        $stmt = $conn->prepare($photoSql);
-                        $null = NULL;
-                        $stmt->bind_param("bi", $null, $food_id);
-                        $stmt->send_long_data(0, $photoData);
-                        $stmt->execute();
-                        $stmt->close();
-                    } else {
-                        echo "Sorry, there was an error uploading your file.";
-                    }
+                    $photoData = file_get_contents($_FILES["photo"]["tmp_name"]);
+                
+                    // Update photo in database
+                    $photoSql = "UPDATE recipe_photo SET photo = ? WHERE recipe_id = ?";
+                    $stmt = $conn->prepare($photoSql);
+                    $null = NULL; // This is needed for binding the blob data
+                    $stmt->bind_param("bi", $null, $food_id);
+                    $stmt->send_long_data(0, $photoData);
+                    $stmt->execute();
+                    $stmt->close();
                 }
+            } else {
+                echo "No photo uploaded or file too large.";
             }
         
             // Redirect or show success message
