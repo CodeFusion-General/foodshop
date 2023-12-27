@@ -1,282 +1,510 @@
-/*
-Navbar
-*/
-
+/* General Body Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Dark background for the whole page */
+    color: #ffffff; /* Light text for contrast */
     margin: 0;
     padding: 0;
 }
+/* Food Container Styles */
+.food-container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #1e1e1e; /* Slightly different dark shade for the container */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
 
-.navbar {
+/* Title Styles */
+.food-title-h1 {
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Search Box Styles */
+.food-search form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.food-search input[type="text"] {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.food-search input[type="submit"] {
     background-color: #333;
-    overflow: hidden;
+    color: #fff;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.food-search input[type="submit"]:hover {
+    background-color: #444;
+}
+
+/* Table Styles */
+.food-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.food-table th, .food-table td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #444;
+}
+
+.food-table th {
+    background-color: #2a2a2a;
+}
+
+/* Table Image Styles */
+.table-img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Button Details */
+.btn-details, .btn-update, .btn-delete {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-details:hover, btn-update:hover, .btn-delete:hover {
+    background-color: #444;
+}
+
+/* Navbar General Styles */
+.navbar {
+    background-color: #222; /* Dark background for the navbar */
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .navbar-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Aligns children to each end */
     align-items: center;
-    padding: 15px;
+    width: 100%; /* Ensures the container takes the full width of the navbar */
 }
 
+/* Navbar Link/Button Styles */
 .navbar a {
-    color: white;
+    color: #fff; /* Light text color for contrast */
     text-decoration: none;
-    padding: 10px;
-    margin: 0 10px;
-    transition: background-color 0.3s;
-    border-radius: 8px;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
+/* Hover Effect for Navbar Links/Buttons */
 .navbar a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #333; /* Slightly lighter on hover */
 }
 
-.myfoods-button,
-.addfoods-button,
-.logout-button,
-.home-button,
-.foods-button,
-.login-button,
-.register-button {
-    background-color: #555;
+/* Specific Styles for Different Buttons */
+.home-button, .foods-button, .addfoods-button, .myfoods-button, .logout-button, .login-button, .register-button {
+    /* Common styles for all navbar buttons */
 }
 
-.myfoods-button:hover,
-.addfoods-button:hover,
-.logout-button:hover,
-.home-button:hover,
-.foods-button:hover,
-.login-button:hover,
-.register-button:hover {
-    background-color: #888;
+/* Left and Right Alignment Styles */
+.navbar-left-align, .navbar-right-align {
+    display: flex;
+    align-items: center;
 }
 
-/*
-Register
-*/
+/* Additional specific styles for different buttons can be added here, if needed */
 
+/* Register Container Styles */
 .register-container {
-    width: 50%;
-    margin: 10px auto;
-    background-color: #888;
+    width: 80%;
+    margin: 20px auto;
+    background-color: #1e1e1e; /* Dark background for the container */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #ffffff; /* Light text for readability */
 }
 
 .register-container h2 {
     text-align: center;
+    color: #ffffff;
     margin-bottom: 20px;
 }
 
-label {
-    display: block;
-    margin-bottom: 8px;
+/* Form Styles */
+.register-container form {
+    display: grid;
+    grid-gap: 10px;
 }
 
-input {
+.register-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.register-container input[type="text"],
+.register-container input[type="password"],
+.register-container input[type="email"],
+.register-container input[type="tel"],
+.register-container input[type="date"] {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-button {
+    border: none;
+    border-radius: 5px;
     background-color: #333;
     color: #fff;
-    padding: 10px 15px;
+}
+
+/* Button Styles */
+.register-container button {
+    background-color: #333;
+    color: #fff;
     border: none;
-    border-radius: 4px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    width: 100%;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Full width */
 }
 
-button:hover {
-    background-color: #555;
+.register-container button:hover {
+    background-color: #444;
 }
 
+/* Responsive Grid Layout for Labels and Inputs */
+@media (min-width: 600px) {
+    .register-container form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
-/*
-Login
-*/
-
+/* Login Container Styles */
 .login-container {
-    width: 50%;
-    margin: 10px auto;
-    background-color: #888;
+    width: 80%;
+    margin: 20px auto;
+    background-color: #1e1e1e; /* Dark background for the container */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #ffffff; /* Light text for readability */
 }
 
 .login-container h2 {
     text-align: center;
+    color: #ffffff;
     margin-bottom: 20px;
 }
 
-/*
-Food
-*/
-
- /*
-    Food Container
-    */
-
-    .food-container {
-        width: 80%;
-        margin: 20px auto;
-        background-color: #888;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .food-title {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .food-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
-
-    .food-table th,
-    .food-table td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-    }
-
-    .food-table th {
-        background-color: #333;
-        color: white;
-    }
-
-    .food-table tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-
-    .food-table img {
-        max-width: 100px;
-        max-height: 100px;
-    }
-
-    .btn-details {
-        display: inline-block;
-        padding: 8px 12px;
-        background-color: #333;
-        color: white;
-        text-decoration: none;
-        border-radius: 4px;
-        /*Align this to center*/
-    }
-
-    .btn-details:hover {
-        background-color: #555;
-    }
-
-    /*
-    Add Foods
-    */
-
-.add-foods {
-    width: 80%;
-    margin: 20px auto;
-    background-color: #888;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.add-foods h2 {
+/* Error Message Styles */
+.error-message {
+    background-color: #b00020; /* Dark red for error messages */
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* Form Labels */
-.add-foods label {
-    display: block;
-    margin-bottom: 8px;
+/* Form Styles */
+.login-container form {
+    display: grid;
+    grid-gap: 10px;
 }
 
-/* Form Input Fields */
-.add-foods input[type="text"],
-.add-foods textarea,
-.add-foods input[type="file"] {
+.login-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
 }
 
-/* Form Textarea */
+/* Button Styles */
+.login-container button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Full width */
+}
+
+.login-container button:hover {
+    background-color: #444;
+}
+
+
+/* Add Foods Form Styles */
+.add-foods {
+    background-color: #1e1e1e; /* Dark background for the form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #ffffff; /* Light text for readability */
+    margin: 20px auto;
+    width: 80%;
+}
+
+.add-foods label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.add-foods input[type="text"],
+.add-foods input[type="file"],
 .add-foods textarea {
-    resize: vertical; /* Allows vertical resizing of the textarea */
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    margin-bottom: 10px; /* Spacing between fields */
 }
 
-/* Form Submit Button */
+.add-foods textarea {
+    height: 100px; /* Adjust height as needed */
+}
+
+/* Button Styles */
+.add-foods button,
 .add-foods input[type="submit"] {
     background-color: #333;
     color: #fff;
-    padding: 10px 15px;
     border: none;
-    border-radius: 4px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    width: 100%;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Full width */
+    margin-top: 10px; /* Spacing above the button */
 }
 
+.add-foods button:hover,
 .add-foods input[type="submit"]:hover {
-    background-color: #555;
+    background-color: #444;
 }
 
+/* Additional Styles for Ingredients Section */
+.add-food-ingredients {
+    margin-bottom: 20px;
+}
 
-/*
-Food Details
-*/
+/* Adjustments for specific fields if needed */
 
-/* Food Details Styles */
+/* Food Details Container Styles */
 .food-details {
-    width: 80%;
-    margin: 20px auto;
-    background-color: #888;
+    background-color: #1e1e1e; /* Dark background for the container */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #ffffff; /* Light text for readability */
+    margin: 20px auto;
+    width: 80%;
+    word-wrap: break-word; /* Ensures text doesn't overflow */
 }
 
-.food-details h1, 
-.food-details h2 {
+.food-details h1, .food-details h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.food-details p, 
-.food-details ul {
-    margin-left: 20px;
-    margin-bottom: 20px;
+.food-details p {
+    margin-bottom: 15px;
+    line-height: 1.6; /* Improves readability */
 }
 
 .food-details ul {
-    list-style-type: circle; /* or any other style you prefer */
+    list-style-type: none; /* Removes default list style */
+    padding: 0;
+}
+
+.food-details li {
+    background-color: #333; /* Dark background for list items */
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
 }
 
 .food-details img {
     display: block;
-    max-width: 100%; /* ensures image is responsive and fits the container */
+    max-width: 100%;
     height: auto;
-    margin: 0 auto; /* centers the image */
-    border-radius: 8px; /* optional, for rounded corners */
+    margin: 20px auto;
+    border-radius: 8px; /* Adds rounded corners to the image */
 }
 
-.food-details li {
-    margin-bottom: 10px; /* space between ingredient items */
+/* Comment Form Styles */
+.comment-form {
+    background-color: #1e1e1e; /* Dark background for the form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #ffffff; /* Light text for readability */
+    margin: 20px auto;
+    width: 80%;
+}
+
+.comment-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    margin-bottom: 10px; /* Spacing between fields */
+    height: 100px; /* Adjust height as needed */
+}
+
+.comment-form input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Full width */
+    margin-top: 10px; /* Spacing above the button */
+}
+
+.comment-form input[type="submit"]:hover {
+    background-color: #444;
+}
+
+/* Comments Section Styles */
+.comments-section {
+    background-color: #1e1e1e; /* Dark background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    margin: 20px auto;
+    width: 80%;
+}
+
+.comments-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.comments-section .comment {
+    background-color: #333; /* Dark background for comments */
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Update Food Container Styles */
+.update-food-container {
+    background-color: #1e1e1e; /* Dark background for the container */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #ffffff; /* Light text for readability */
+    margin: 20px auto;
+    width: 80%;
+}
+
+.update-food-container h1, .update-food-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.update-food-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.update-food-container input[type="text"],
+.update-food-container textarea,
+.update-food-container input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    margin-bottom: 10px; /* Spacing between fields */
+}
+
+.update-food-container textarea {
+    height: 100px; /* Adjust height as needed */
+}
+
+.update-food-container input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Full width */
+    margin-top: 10px; /* Spacing above the button */
+}
+
+.update-food-container input[type="submit"]:hover {
+    background-color: #444;
+}
+
+/* Introduction Container Styles */
+.introduction-container {
+    background-color: #1e1e1e; /* Karanlık arka plan */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #ffffff; /* Açık yazı rengi okunabilirlik için */
+    margin: 20px auto;
+    width: 80%;
+    text-align: center; /* Merkeze hizalama */
+}
+
+.introduction-container h1 {
+    margin-bottom: 20px;
+}
+
+.introduction-container p {
+    margin-bottom: 20px;
+    line-height: 1.6; /* Okunabilirliği artırmak için satır yüksekliği */
+}
+
+/* Resim Stilleri */
+.introduction-container .introduction-img {
+    max-width: 200px; /* Maksimum genişlik */
+    height: 200px;
+    margin: 5px; /* Her resim arasında biraz boşluk */
+    border-radius: 8px; /* Yuvarlatılmış köşeler */
+    display: inline-block; /* Resimleri yan yana getir */
 }
